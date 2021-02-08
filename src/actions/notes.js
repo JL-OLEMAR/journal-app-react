@@ -14,10 +14,14 @@ export const startNewNote = () => {
       date: new Date().getTime()
     }
 
-    // Consulta las notas del usuario identificado
-    const doc = await db.collection(`${uid}/journal/notes`).add(newNote)
-    dispatch(activeNote(doc.id, newNote))
-    dispatch(addNewNote(doc.id, newNote))
+    try {
+      // Consulta las notas del usuario identificado
+      const doc = await db.collection(`${uid}/journal/notes`).add(newNote)
+      dispatch(activeNote(doc.id, newNote))
+      dispatch(addNewNote(doc.id, newNote))
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 
@@ -39,8 +43,12 @@ export const addNewNote = (id, note) => ({
 
 export const startLoadingNotes = (uid) => {
   return async (dispatch) => {
-    const notes = await loadNotes(uid)
-    dispatch(setNotes(notes))
+    try {
+      const notes = await loadNotes(uid)
+      dispatch(setNotes(notes))
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 
@@ -57,13 +65,17 @@ export const startSaveNote = (note) => {
       delete note.url
     }
 
-    const noteToFirestore = { ...note }
-    delete noteToFirestore.id
+    try {
+      const noteToFirestore = { ...note }
+      delete noteToFirestore.id
 
-    await db.doc(`${uid}/journal/notes/${note.id}`).update(noteToFirestore)
+      await db.doc(`${uid}/journal/notes/${note.id}`).update(noteToFirestore)
 
-    dispatch(refreshNote(note.id, noteToFirestore))
-    Swal.fire('Saved', note.title, 'success')
+      dispatch(refreshNote(note.id, noteToFirestore))
+      Swal.fire('Saved', note.title, 'success')
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 
@@ -101,10 +113,14 @@ export const startUploading = (file) => {
 
 export const startDeleting = (id) => {
   return async (dispatch, getState) => {
-    const uid = getState().auth.uid
-    await db.doc(`${uid}/journal/notes/${id}`).delete()
+    try {
+      const uid = getState().auth.uid
+      await db.doc(`${uid}/journal/notes/${id}`).delete()
 
-    dispatch(deleteNote(id))
+      dispatch(deleteNote(id))
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 
