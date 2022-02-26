@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom'
 
 import { JournalApp } from './JournalApp.jsx'
-// import './styles/styles.scss'
+import './index.css'
 
 ReactDOM.render(
   <JournalApp />,

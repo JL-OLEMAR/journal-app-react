@@ -6,7 +6,7 @@ import { notesReducer } from '../reducers/notesReducer.jsx'
 import { uiReducer } from '../reducers/uiReducer.jsx'
 
 const composeEnhancers = (
-  typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+  typeof window !== 'undefined' && (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__)
 ) || compose
 
 const reducers = combineReducers({

@@ -18,8 +18,8 @@ export const Sidebar = () => {
   }
 
   return (
-    <aside className='journal__sidebar'>
-      <div className='journal__sidebar-navbar'>
+    <aside className='journal-sidebar'>
+      <div className='navbar'>
         <h3 className='mt-5'>
           <i className='far fa-moon' />
           <span> {name}</span>
@@ -34,7 +34,7 @@ export const Sidebar = () => {
       </div>
 
       <div
-        className='journal__new-entry'
+        className='new-entry'
         onClick={handleAddNew}
       >
         <i className='far fa-calendar-plus fa-5x' />

@@ -1,0 +1,9 @@
+.alert-error {
+  background-color: red;
+  border-radius: 5px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  padding: 5px;
+}

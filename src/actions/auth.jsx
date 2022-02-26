@@ -1,8 +1,10 @@
 import Swal from 'sweetalert2'
-import { firebase, googleAuthProvider } from '../firebase/firebase-config'
-import { types } from '../types/types'
-import { noteLogout } from './notes'
-import { uiFinishLoading, uiStartLoading } from './ui'
+
+import { firebase, googleAuthProvider } from '../firebase/firebase-config.jsx'
+import { types } from '../types/types.jsx'
+
+import { noteLogout } from './notes.jsx'
+import { uiFinishLoading, uiStartLoading } from './ui.jsx'
 
 export const startLoginEmailPassword = (email, password) => {
   return (dispatch) => {

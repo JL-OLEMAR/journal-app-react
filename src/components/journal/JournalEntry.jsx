@@ -13,13 +13,13 @@ export const JournalEntry = ({ id, date, title, body, url }) => {
 
   return (
     <div
-      className='journal__entry pointer animate__animated animate__fadeIn animate__faster'
+      className='journal-entry pointer animate__animated animate__fadeIn animate__faster'
       onClick={handleEntryCLick}
     >
       {
         (url) && (
           <div
-            className='journal__entry-picture'
+            className='entry-picture'
             style={{
               backgroundSize: 'cover',
               backgroundImage: `url(${url})`
@@ -27,16 +27,16 @@ export const JournalEntry = ({ id, date, title, body, url }) => {
           />)
       }
 
-      <div className='journal__entry-body'>
-        <p className='journal__entry-title'>
+      <div className='entry-body'>
+        <p className='entry-title'>
           {title}
         </p>
-        <p className='journal__entry-content'>
+        <p className='entry-content'>
           {body}
         </p>
       </div>
 
-      <div className='journal__entry-date-box'>
+      <div className='entry-date-box'>
         <span>{noteDate.format('dddd')}</span>
         <h4>{noteDate.format('Do')}</h4>
       </div>

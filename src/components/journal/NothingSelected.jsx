@@ -1,6 +1,6 @@
 export const NothingSelected = () => {
   return (
-    <div className='nothing__main-content'>
+    <div className='nothing'>
       <p>
         Select something
         <br />

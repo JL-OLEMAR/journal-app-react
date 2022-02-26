@@ -1,4 +1,4 @@
-import { types } from '../types/types'
+import { types } from '../types/types.jsx'
 
 // ACCIONES
 export const setError = (err) => ({

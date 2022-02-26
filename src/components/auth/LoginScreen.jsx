@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { startGoogleLogin, startLoginEmailPassword } from '../../actions/auth'
-import { useForm } from '../../hooks/useForm'
+import { startGoogleLogin, startLoginEmailPassword } from '../../actions/auth.jsx'
+import { useForm } from '../../hooks/useForm.jsx'
+import './LoginScreen.css'
 
 export const LoginScreen = () => {
   const dispatch = useDispatch()
@@ -26,14 +27,14 @@ export const LoginScreen = () => {
 
   return (
     <>
-      <h3 className='auth__title'>Login</h3>
+      <h3 className='auth-title'>Login</h3>
       <form
         className='animate__animated animate__fadeIn animate__faster'
         onSubmit={handleLogin}
       >
         <input
           autoComplete='off'
-          className='auth__input'
+          className='input'
           name='email'
           placeholder='Email'
           type='text'
@@ -42,7 +43,7 @@ export const LoginScreen = () => {
         />
 
         <input
-          className='auth__input'
+          className='input'
           name='password'
           placeholder='Password'
           type='password'
@@ -58,7 +59,7 @@ export const LoginScreen = () => {
           Login
         </button>
 
-        <div className='auth__social-networks'>
+        <div className='social-networks'>
           <p>Login with social networks</p>
           <div
             className='google-btn'

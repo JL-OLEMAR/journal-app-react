@@ -5,6 +5,7 @@ import { useForm } from '../../hooks/useForm.jsx'
 import { activeNote, startDeleting } from '../../actions/notes.jsx'
 
 import { NotesAppBar } from './NotesAppBar.jsx'
+import './NoteScreen.css'
 
 export const NoteScreen = () => {
   const dispatch = useDispatch()
@@ -29,13 +30,13 @@ export const NoteScreen = () => {
   }
 
   return (
-    <div className='notes__main-content'>
+    <div className='notes-main-content'>
       <NotesAppBar />
 
-      <div className='notes__content'>
+      <div className='notes-content'>
         <input
           autoComplete='off'
-          className='notes__title-input'
+          className='title-input'
           name='title'
           placeholder='Some awesome title'
           type='text'
@@ -44,7 +45,7 @@ export const NoteScreen = () => {
         />
 
         <textarea
-          className='notes__textarea'
+          className='text-area'
           name='body'
           placeholder='What happend today'
           value={body}
@@ -52,7 +53,7 @@ export const NoteScreen = () => {
         />
 
         {note.url && (
-          <div className='notes__image'>
+          <div className='notes-image'>
             <img alt={note.title} src={note.url} />
           </div>
         )}

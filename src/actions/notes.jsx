@@ -1,8 +1,9 @@
 import Swal from 'sweetalert2'
-import { db } from '../firebase/firebase-config'
-import { fileUpload } from '../helpers/fileUpload'
-import { loadNotes } from '../helpers/loadNotes'
-import { types } from '../types/types'
+
+import { db } from '../firebase/firebase-config.jsx'
+import { fileUpload } from '../helpers/fileUpload.jsx'
+import { loadNotes } from '../helpers/loadNotes.jsx'
+import { types } from '../types/types.jsx'
 
 export const startNewNote = () => {
   return async (dispatch, getState) => {
@@ -17,6 +18,7 @@ export const startNewNote = () => {
     try {
       // Consulta las notas del usuario identificado
       const doc = await db.collection(`${uid}/journal/notes`).add(newNote)
+
       dispatch(activeNote(doc.id, newNote))
       dispatch(addNewNote(doc.id, newNote))
     } catch (error) {
@@ -45,6 +47,7 @@ export const startLoadingNotes = (uid) => {
   return async (dispatch) => {
     try {
       const notes = await loadNotes(uid)
+
       dispatch(setNotes(notes))
     } catch (error) {
       console.log(error)
@@ -67,6 +70,7 @@ export const startSaveNote = (note) => {
 
     try {
       const noteToFirestore = { ...note }
+
       delete noteToFirestore.id
 
       await db.doc(`${uid}/journal/notes/${note.id}`).update(noteToFirestore)
@@ -104,6 +108,7 @@ export const startUploading = (file) => {
     })
 
     const fileUrl = await fileUpload(file)
+
     activeNote.url = fileUrl
     dispatch(startSaveNote(activeNote))
 
@@ -115,6 +120,7 @@ export const startDeleting = (id) => {
   return async (dispatch, getState) => {
     try {
       const uid = getState().auth.uid
+
       await db.doc(`${uid}/journal/notes/${id}`).delete()
 
       dispatch(deleteNote(id))
