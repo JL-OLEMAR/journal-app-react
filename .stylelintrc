@@ -14,7 +14,7 @@
     "./node_modules/**",
     "./src/assets/**",
     "**/*.html",
-    "**/*.js",
-    "**/*.ts"
+    "**/*.jsx",
+    "**/*.tsx"
   ]
 }

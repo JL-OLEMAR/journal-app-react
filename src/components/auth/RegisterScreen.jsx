@@ -1,10 +1,10 @@
-import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import validator from 'validator'
 
-import { useForm } from '../../hooks/useForm.jsx'
 import { startRegisterWithEmailPasswordName } from '../../actions/auth.jsx'
 import { removeError, setError } from '../../actions/ui.jsx'
+import { useForm } from '../../hooks/useForm.jsx'
 import './RegisterScreen.css'
 
 export const RegisterScreen = () => {
@@ -12,10 +12,10 @@ export const RegisterScreen = () => {
   const { msgError } = useSelector(state => state.ui)
 
   const [formValues, handleInputChange] = useForm({
-    name: '',
-    email: '',
-    password: '',
-    password2: ''
+    name: 'test1',
+    email: 'test1@test.com',
+    password: '123456',
+    password2: '123456'
   })
 
   const { name, email, password, password2 } = formValues

@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux'
 
-import { AppRouter } from './routers/AppRouter.jsx'
 import { store } from './store/store.jsx'
+import { AppRouter } from './routers/AppRouter.jsx'
 
 export const JournalApp = () => {
   return (
