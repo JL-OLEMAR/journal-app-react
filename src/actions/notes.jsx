@@ -1,3 +1,4 @@
+import { collection, deleteDoc, addDoc, updateDoc, doc } from 'firebase/firestore'
 import Swal from 'sweetalert2'
 
 import { db } from '../firebase/firebase-config.jsx'
@@ -16,8 +17,8 @@ export const startNewNote = () => {
     }
 
     try {
-      // Consulta las notas del usuario identificado
-      const doc = await db.collection(`${uid}/journal/notes`).add(newNote)
+      // const doc = await db.collection(`${uid}/journal/notes`).add(newNote)
+      const doc = await addDoc(collection(db, `${uid}/journal/notes`), newNote)
 
       dispatch(activeNote(doc.id, newNote))
       dispatch(addNewNote(doc.id, newNote))
@@ -29,18 +30,12 @@ export const startNewNote = () => {
 
 export const activeNote = (id, note) => ({
   type: types.notesActive,
-  payload: {
-    id,
-    ...note
-  }
+  payload: { id, ...note }
 })
 
 export const addNewNote = (id, note) => ({
   type: types.notesAddNew,
-  payload: {
-    id,
-    ...note
-  }
+  payload: { id, ...note }
 })
 
 export const startLoadingNotes = (uid) => {
@@ -60,6 +55,7 @@ export const setNotes = (notes) => ({
   payload: notes
 })
 
+// Update
 export const startSaveNote = (note) => {
   return async (dispatch, getState) => {
     const { uid } = getState().auth
@@ -73,7 +69,8 @@ export const startSaveNote = (note) => {
 
       delete noteToFirestore.id
 
-      await db.doc(`${uid}/journal/notes/${note.id}`).update(noteToFirestore)
+      // await db.doc(`${uid}/journal/notes/${note.id}`).update(noteToFirestore)
+      await updateDoc(doc(db, `${uid}/journal/notes`, `${note.id}`), noteToFirestore)
 
       dispatch(refreshNote(note.id, noteToFirestore))
       Swal.fire('Saved', note.title, 'success')
@@ -87,10 +84,7 @@ export const refreshNote = (id, note) => ({
   type: types.notesUpdated,
   payload: {
     id,
-    note: {
-      id,
-      ...note
-    }
+    note: { id, ...note }
   }
 })
 
@@ -116,12 +110,14 @@ export const startUploading = (file) => {
   }
 }
 
+// Delete
 export const startDeleting = (id) => {
   return async (dispatch, getState) => {
     try {
       const uid = getState().auth.uid
 
-      await db.doc(`${uid}/journal/notes/${id}`).delete()
+      // await db.doc(`${uid}/journal/notes/${id}`).delete()
+      await deleteDoc(doc(db, `${uid}/journal/notes`, `${id}`))
 
       dispatch(deleteNote(id))
     } catch (error) {

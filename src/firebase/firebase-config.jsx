@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
 import { getAuth, GoogleAuthProvider } from 'firebase/auth'
-// import { getAnalytics } from 'firebase/analytics'
+import { getAnalytics } from 'firebase/analytics'
 
 const envKeys = import.meta.env
 
@@ -16,13 +16,16 @@ const firebaseConfig = {
   measurementId: envKeys.VITE_APP_MEASUREMENT_ID
 }
 
-const firebaseApp = initializeApp(firebaseConfig)
-const db = getFirestore(firebaseApp)
+const app = initializeApp(firebaseConfig)
+const db = getFirestore(app)
+const auth = getAuth(app)
 const googleAuthProvider = new GoogleAuthProvider()
-const auth = getAuth()
+const analytics = getAnalytics(app)
 
 export {
   db,
   googleAuthProvider,
-  auth
+  auth,
+  analytics
+
 }
