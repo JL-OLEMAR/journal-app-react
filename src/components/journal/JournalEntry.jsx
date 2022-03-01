@@ -31,9 +31,6 @@ export const JournalEntry = ({ id, date, title, body, url }) => {
         <p className='entry-title'>
           {title}
         </p>
-        <p className='entry-content'>
-          {body}
-        </p>
       </div>
 
       <div className='entry-date-box'>

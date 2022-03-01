@@ -210,6 +210,7 @@ main {
       overflow-y: scroll;
 
       & .journal-entry {
+        align-items: center;
         background-color: #fff;
         border-radius: 4px;
         color: #363636;
@@ -221,24 +222,28 @@ main {
 
         & .entry-picture {
           height: 49px;
+          overflow: hidden;
           width: 49px;
+
+          & img {
+            object-fit: cover;
+            padding-right: 49px;
+          }
         }
 
         & .entry-body {
-          padding: 4px;
-          height: 41px;
+          align-self: center;
+          height: 28px;
+          max-width: 300px;
+          overflow: hidden;
 
           & .entry-title {
             color: #363636;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: bold;
-            padding-bottom: 3px;
-          }
-
-          & .entry-content {
-            font-size: 11px;
-            max-width: 130px;
+            max-width: 138px;
             overflow: hidden;
+            padding: 0 2px;
           }
         }
 
