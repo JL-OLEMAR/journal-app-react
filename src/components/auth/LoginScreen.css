@@ -4,18 +4,18 @@
   flex-direction: column;
   justify-content: center;
   padding-bottom: 20px;
-  padding-top: 20px;
+  padding-top: 10px;
   width: 100%;
 
-  & .google-btn {
+  & .btn-google {
     background-color: #4285f4;
     border-radius: 2px;
-    box-shadow: 0 3px 4px 0 rgb(0 0 0 / 25%);
+    box-shadow: 0 3px 4px 0 #00000025;
     cursor: pointer;
     height: 42px;
     margin-top: 5px;
-    transition: box-shadow 0.3s ease;
     width: 100%;
+    transition: box-shadow 0.3s ease;
 
     & .google-icon-wrapper {
       background-color: #fff;

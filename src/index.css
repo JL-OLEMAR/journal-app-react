@@ -21,6 +21,10 @@ main {
   margin-top: 5px;
 }
 
+.mt-2 {
+  margin-top: 10px;
+}
+
 .mt-5 {
   margin-top: 20px;
 }
@@ -33,24 +37,8 @@ main {
   margin-bottom: 20px;
 }
 
-.input {
-  border-bottom: 1px solid #d8d8d8;
-  border: 0;
-  color: #363636;
-  font-size: 16px;
-  height: 20px;
-  margin-bottom: 10px;
-  transition: border-botton 0.3s ease;
-  width: 100%;
-
-  &:focus {
-    border-bottom: 1px solid #5c62c5;
-    outline: none;
-  }
-}
-
 .link {
-  color: #d8d8d8;
+  color: #363636;
   text-decoration: none;
 
   &:hover {
@@ -63,7 +51,7 @@ main {
   justify-content: center;
 }
 
-/* Style Button */
+/* Style Buttons Globals */
 .btn {
   background-color: transparent;
   border: none;
@@ -78,8 +66,12 @@ main {
   }
 
   &:hover {
-    color: #ffffff10;
+    color: #e6e6e6;
   }
+}
+
+.btn-block {
+  width: 100%;
 }
 
 .btn-primary {
@@ -87,11 +79,11 @@ main {
   border-radius: 2px;
 
   &:disabled {
-    background-color: #5c62c585;
+    background-color: #9498d9;
   }
 
   &:hover {
-    background-color: #5c62c515;
+    background-color: #383e9d;
   }
 }
 
@@ -100,12 +92,8 @@ main {
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #ff000010;
+    background-color: #c00;
   }
-}
-
-.btn-block {
-  width: 100%;
 }
 
 .pointer {
@@ -113,16 +101,7 @@ main {
 }
 
 /* Style of the Authentication */
-
-/* Ojito Here */
-.auth-title {
-  color: #5c62c520;
-  margin-bottom: 20px;
-}
-
-/* Ojito Here */
-
-.auth {
+.auth-main {
   align-items: center;
   background-color: #5c62c5;
   display: flex;
@@ -133,101 +112,160 @@ main {
 
   & .auth-container {
     background-color: #fff;
-    border-radius: 2px;
+    border-radius: 3px;
     box-shadow: 0 3px #363636;
+    margin: 0;
     padding: 20px;
     width: 250px;
+
+    & .auth-title {
+      color: #31368a;
+      margin-bottom: 20px;
+    }
+
+    & form {
+      & .alert-error {
+        background-color: #eee;
+        border-radius: 3px;
+        color: #f00;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+        padding: 5px;
+      }
+
+      & .auth-input {
+        border-bottom: 1px solid #d8d8d8;
+        border-radius: 2px;
+        border: 1px solid #d8d8d8;
+        color: #363636;
+        font-size: 16px;
+        height: 20px;
+        margin-bottom: 10px;
+        padding: 5px;
+        width: 238px;
+        transition: border-botton 0.3s ease;
+
+        &:focus {
+          border-bottom: 1px solid #5c62c5;
+          outline: none;
+        }
+      }
+
+      & .auth-btn {
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
   }
 }
 
 /* Journal */
 .journal-main-content {
   display: flex;
-}
 
-.journal-sidebar {
-  background-color: #363636;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  padding-left: 10px;
-  padding-right: 10px;
-  width: 450px;
-
-  & .navbar {
-    display: flex;
-    justify-content: space-between;
-
-    & h3 {
-      font-weight: lighter;
-    }
-  }
-
-  & .new-entry {
-    align-items: center;
-    cursor: pointer;
+  & .journal-sidebar {
+    background-color: #363636;
+    color: #fff;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin-top: 30px;
-    transition: color 0.3s ease;
-    width: 100%;
+    height: 100vh;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 450px;
 
-    &:hover {
-      color: #ffffff20;
-    }
-  }
-}
+    & .navbar {
+      display: flex;
+      justify-content: space-between;
 
-.journal-entries {
-  flex: 1 1 auto;
-  margin-top: 30px;
-  overflow: scroll;
-}
+      & h3 {
+        font-weight: lighter;
+      }
 
-.journal-entry {
-  background-color: #fff;
-  border-radius: 4px;
-  color: #363636;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  overflow: hidden;
-
-  & .entry-picture {
-    height: 75px;
-    width: 75px;
-  }
-
-  & .entry-body {
-    padding: 10px;
-
-    & .entry-title {
-      font-size: 14px;
-      font-weight: bold;
+      & .logout-navbar {
+        font-size: 12px;
+        font-weight: bold;
+        border-radius: 2px;
+      }
     }
 
-    & .entry-content {
-      font-size: 10px;
+    & .new-entry {
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 30px;
+      width: 100%;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #ccc;
+      }
     }
-  }
 
-  & .entry-date-box {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 5px;
+    & .journal-entries {
+      flex: 1 1 auto;
+      margin-top: 30px;
+      overflow-y: scroll;
 
-    & span {
-      font-size: 12px;
+      & .journal-entry {
+        background-color: #fff;
+        border-radius: 4px;
+        color: #363636;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        overflow: hidden;
+        transition: background-color 0.3s ease;
+
+        & .entry-picture {
+          height: 49px;
+          width: 49px;
+        }
+
+        & .entry-body {
+          padding: 4px;
+          height: 41px;
+
+          & .entry-title {
+            color: #363636;
+            font-size: 14px;
+            font-weight: bold;
+            padding-bottom: 3px;
+          }
+
+          & .entry-content {
+            font-size: 11px;
+            max-width: 130px;
+            overflow: hidden;
+          }
+        }
+
+        & .entry-date-box {
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 5px;
+
+          & span {
+            font-size: 12px;
+          }
+        }
+
+        &:hover {
+          border: none;
+          background-color: #e6e6e6;
+          outline: none;
+        }
+      }
     }
   }
 }
 
 /* NotesAppBar */
-.notes-appbar {
+.notes-header {
   align-items: center;
   background-color: #5c62c5;
   color: #fff;

@@ -23,7 +23,7 @@ export const NotesAppBar = () => {
   }
 
   return (
-    <div className='notes-appbar'>
+    <div className='notes-header'>
       <span> 28 de agosto 2021</span>
 
       <input

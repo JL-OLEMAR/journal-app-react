@@ -5,7 +5,6 @@ import validator from 'validator'
 import { startRegisterWithEmailPasswordName } from '../../actions/auth.jsx'
 import { removeError, setError } from '../../actions/ui.jsx'
 import { useForm } from '../../hooks/useForm.jsx'
-import './RegisterScreen.css'
 
 export const RegisterScreen = () => {
   const dispatch = useDispatch()
@@ -54,19 +53,11 @@ export const RegisterScreen = () => {
         className='animate__animated animate__fadeIn animate__faster'
         onSubmit={handleRegister}
       >
-
-        {
-          msgError &&
-            (
-              <div className='alert-error'>
-                {msgError}
-              </div>
-            )
-        }
+        {msgError && <div className='alert-error'>{msgError}</div>}
 
         <input
           autoComplete='off'
-          className='input'
+          className='auth-input'
           name='name'
           placeholder='Name'
           type='text'
@@ -76,7 +67,7 @@ export const RegisterScreen = () => {
 
         <input
           autoComplete='off'
-          className='input'
+          className='auth-input'
           name='email'
           placeholder='Email'
           type='text'
@@ -85,7 +76,7 @@ export const RegisterScreen = () => {
         />
 
         <input
-          className='input'
+          className='auth-input'
           name='password'
           placeholder='Password'
           type='password'
@@ -94,7 +85,7 @@ export const RegisterScreen = () => {
         />
 
         <input
-          className='input'
+          className='auth-input'
           name='password2'
           placeholder='Confirm password'
           type='password'
@@ -103,7 +94,7 @@ export const RegisterScreen = () => {
         />
 
         <button
-          className='btn btn-primary btn-block mb-5'
+          className='btn btn-primary btn-block mb-5 auth-btn'
           type='submit'
         >
           Register

@@ -17,7 +17,7 @@ export const JournalEntry = ({ id, date, title, body, url }) => {
       onClick={handleEntryCLick}
     >
       {
-        (url) && (
+        url && (
           <div
             className='entry-picture'
             style={{

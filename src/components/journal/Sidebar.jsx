@@ -20,27 +20,19 @@ export const Sidebar = () => {
   return (
     <aside className='journal-sidebar'>
       <div className='navbar'>
-        <h3 className='mt-5'>
+        <h3 className='mt-2'>
           <i className='far fa-moon' />
           <span> {name}</span>
         </h3>
 
-        <button
-          className='btn'
-          onClick={handleLogout}
-        >
+        <button className='btn btn-danger logout-navbar mt-2' onClick={handleLogout}>
           Logout
         </button>
       </div>
 
-      <div
-        className='new-entry'
-        onClick={handleAddNew}
-      >
+      <div className='new-entry' onClick={handleAddNew}>
         <i className='far fa-calendar-plus fa-5x' />
-        <p className='mt-5'>
-          New entry
-        </p>
+        <p className='mt-5'>New entry</p>
       </div>
 
       <JournalEntries />

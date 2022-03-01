@@ -32,7 +32,7 @@ export const LoginScreen = () => {
       >
         <input
           autoComplete='off'
-          className='input'
+          className='auth-input'
           name='email'
           placeholder='Email'
           type='text'
@@ -41,7 +41,7 @@ export const LoginScreen = () => {
         />
 
         <input
-          className='input'
+          className='auth-input'
           name='password'
           placeholder='Password'
           type='password'
@@ -50,7 +50,7 @@ export const LoginScreen = () => {
         />
 
         <button
-          className='btn btn-primary btn-block'
+          className='btn btn-primary btn-block auth-btn'
           disabled={loading}
           type='submit'
         >
@@ -58,9 +58,9 @@ export const LoginScreen = () => {
         </button>
 
         <div className='social-networks'>
-          <p>Login with social networks</p>
+          <p>or</p>
           <div
-            className='google-btn'
+            className='btn-google'
             onClick={handleGoogleLogin}
           >
             <div className='google-icon-wrapper'>
