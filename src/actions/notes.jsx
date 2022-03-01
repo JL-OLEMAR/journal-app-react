@@ -1,5 +1,6 @@
 import { collection, deleteDoc, addDoc, updateDoc, doc } from 'firebase/firestore'
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/dist/sweetalert2.css'
 
 import { db } from '../firebase/firebase-config.jsx'
 import { fileUpload } from '../helpers/fileUpload.jsx'
@@ -96,9 +97,7 @@ export const startUploading = (file) => {
       title: 'Uploading...',
       text: 'Please wait...',
       allowOutsideClick: false,
-      onBeforeOpen: () => {
-        Swal.showLoading()
-      }
+      onBeforeOpen: () => Swal.showLoading()
     })
 
     const fileUrl = await fileUpload(file)

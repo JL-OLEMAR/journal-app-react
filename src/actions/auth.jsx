@@ -1,10 +1,11 @@
-import Swal from 'sweetalert2'
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut
 } from 'firebase/auth'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/dist/sweetalert2.css'
 
 import { types } from '../types/types.jsx'
 import { auth, googleAuthProvider } from '../firebase/firebase-config.jsx'
