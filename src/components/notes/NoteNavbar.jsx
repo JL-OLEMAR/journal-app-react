@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { startSaveNote, startUploading } from '../../actions/notes.jsx'
 
-export const NotesAppBar = () => {
+export const NoteNavbar = () => {
   const dispatch = useDispatch()
   const { active } = useSelector(state => state.notes)
 
@@ -23,8 +23,8 @@ export const NotesAppBar = () => {
   }
 
   return (
-    <div className='notes-header'>
-      <span> 28 de agosto 2021</span>
+    <div className='notes-navbar'>
+      <span> 02 de marzo 2022</span>
 
       <input
         id='fileSelector'
@@ -36,17 +36,19 @@ export const NotesAppBar = () => {
 
       <div>
         <button
-          className='btn'
+          className='btn btn-picture'
           onClick={handlePictureCLick}
         >
-          Picture
+          <i className='far fa-image fa-1x mt-1 pr-1' />
+          <span>Picture</span>
         </button>
 
         <button
-          className='btn'
+          className='btn btn-save'
           onClick={handleSave}
         >
-          Save
+          <i className='far fa-save fa-1x mt-1 pr-1' />
+          <span>Save</span>
         </button>
       </div>
     </div>

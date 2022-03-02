@@ -2,7 +2,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup,
-  signOut
+  signOut,
+  updateProfile
 } from 'firebase/auth'
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/dist/sweetalert2.css'
@@ -25,6 +26,7 @@ export const startLoginEmailPassword = (email, password) => {
 
     return signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
+        console.log({ user })
         dispatch(login(user.uid, user.displayName))
         dispatch(uiFinishLoading())
       })
@@ -47,11 +49,11 @@ export const startGoogleLogin = () => {
 }
 
 // Register
-export const startRegisterWithEmailPasswordName = (email, password, name) => {
+export const startRegisterWithEmailPasswordName = (name, email, password) => {
   return (dispatch) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then(async ({ user }) => {
-        await user.updateProfile({ displayName: name })
+        await updateProfile(auth.currentUser, { displayName: name })
         dispatch(login(user.uid, user.displayName))
       })
       .catch(e => {

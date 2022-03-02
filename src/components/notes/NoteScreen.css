@@ -4,17 +4,22 @@
   height: 100%;
 
   & .notes-content {
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 3px #363636;
     display: flex;
     flex-direction: column;
     height: 100%;
     padding: 20px;
 
     & .title-input {
-      border: none;
+      border-radius: 5px;
+      border: 1px solid #d8d8d8;
       color: #363636;
       font-size: 25px;
       font-weight: 700;
       margin-bottom: 10px;
+      padding: 3px 6px;
 
       &:focus {
         outline: none;
@@ -22,14 +27,32 @@
     }
 
     & .text-area {
-      border: none;
-      color: #363636;
+      border-radius: 5px;
+      border: 1px solid #d8d8d8;
+      color: #333;
+      cursor: default;
       flex: 1 1 auto;
-      font-size: 20px;
+      font-size: 18px;
+      margin-bottom: 10px;
+      padding: 6px;
       resize: none;
 
       &:focus {
         outline: none;
+      }
+
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: #e6e6e6;
+        border-radius: 50px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #7e7e7e;
+        border-radius: 50px;
       }
     }
 

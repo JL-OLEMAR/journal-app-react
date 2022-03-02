@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useForm } from '../../hooks/useForm.jsx'
 import { activeNote, startDeleting } from '../../actions/notes.jsx'
 
-import { NotesAppBar } from './NotesAppBar.jsx'
+import { NoteNavbar } from './NoteNavbar.jsx'
 import './NoteScreen.css'
 
 export const NoteScreen = () => {
@@ -31,7 +31,7 @@ export const NoteScreen = () => {
 
   return (
     <div className='notes-main-content'>
-      <NotesAppBar />
+      <NoteNavbar />
 
       <div className='notes-content'>
         <input
@@ -59,8 +59,12 @@ export const NoteScreen = () => {
         )}
       </div>
 
-      <button className='btn btn-danger' onClick={handleDelete}>
-        Delete
+      <button
+        className='btn btn-danger btn-del'
+        onClick={handleDelete}
+      >
+        <i className='fa fa-trash fa-1x mt-1 pr-1' />
+        <span>Delete</span>
       </button>
     </div>
   )
