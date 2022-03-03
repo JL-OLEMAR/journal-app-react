@@ -33,8 +33,9 @@ export const NoteScreen = () => {
     <div className='notes-main-content'>
       <NoteNavbar />
 
-      <div className='notes-content'>
+      <div className='notes-content' id='note'>
         <input
+          autoFocus
           autoComplete='off'
           className='title-input'
           name='title'

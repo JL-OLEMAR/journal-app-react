@@ -14,10 +14,16 @@
   margin: 0;
 }
 
-html,
+/* html,
 body {
   height: 100vh;
   width: 100vw;
+} */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
 main {
@@ -141,9 +147,8 @@ main {
   width: 100vw;
 
   & .auth-container {
-    background-color: #fff;
+    background-color: #ffff;
     border-radius: 3px;
-    box-shadow: 0 3px #363636;
     margin: 0;
     padding: 20px;
     width: 250px;
@@ -190,7 +195,15 @@ main {
   }
 }
 
+/* ---------------------------------------------------------------------------------------- */
+
 /* Journal */
+.ancla-note {
+  background-color: #363636;
+  color: #fff;
+  text-decoration: none;
+}
+
 .journal-main-content {
   display: flex;
 
@@ -200,13 +213,12 @@ main {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    max-width: 450px;
     padding-left: 10px;
     padding-right: 10px;
-    width: 450px;
 
     & .navbar {
       display: flex;
+      height: 110px;
       justify-content: space-between;
       max-height: 36px;
       overflow: hidden;
@@ -235,8 +247,8 @@ main {
       flex-direction: column;
       justify-content: center;
       margin-top: 30px;
-      width: 100%;
       transition: color 0.3s ease;
+      width: 100%;
 
       &:hover {
         color: #ccc;
@@ -350,5 +362,41 @@ main {
   & p {
     font-size: 28px;
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .journal-main-content {
+    flex-direction: column;
+  }
+
+  .navbar,
+  .new-entry,
+  .journal-entries {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .journal-entries {
+    height: auto;
+  }
+
+  .new-entry,
+  .journal-entries {
+    margin-top: 10px;
+  }
+
+  .notes-main-content,
+  .nothing {
+    /* min-height: 80px; */
+    height: 100vh;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (min-width: 650px) {
+  .journal-sidebar {
+    width: 450px;
   }
 }

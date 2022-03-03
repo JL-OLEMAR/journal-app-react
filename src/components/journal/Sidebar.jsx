@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import { startLogout } from '../../actions/auth.jsx'
 import { startNewNote } from '../../actions/notes.jsx'
@@ -30,11 +31,12 @@ export const Sidebar = () => {
         </button>
       </div>
 
-      <div className='new-entry' onClick={handleAddNew}>
-        <i className='far fa-calendar-plus fa-5x' />
-        <p className='mt-2'>New entry</p>
-      </div>
-
+      <Link className='ancla-note' to='/#note'>
+        <div className='new-entry' onClick={handleAddNew}>
+          <i className='far fa-calendar-plus fa-5x' />
+          <p className='mt-2'>New entry</p>
+        </div>
+      </Link>
       <JournalEntries />
     </aside>
   )

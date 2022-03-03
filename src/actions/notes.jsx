@@ -71,7 +71,7 @@ export const startSaveNote = (note) => {
       await updateDoc(doc(db, `${uid}/journal/notes`, `${note.id}`), noteToFirestore)
 
       dispatch(refreshNote(note.id, noteToFirestore))
-      Swal.fire('Note Updated', note.title, 'success')
+      Swal.fire('Note Saved', note.title, 'success')
     } catch (error) {
       console.log(error)
     }
@@ -117,8 +117,8 @@ export const startDeleting = (id) => {
         text: "You won't be able to revert this!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
