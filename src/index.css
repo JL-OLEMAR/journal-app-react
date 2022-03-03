@@ -130,7 +130,10 @@ main {
 /* Style of the Authentication */
 .auth-main {
   align-items: center;
-  background-color: #5c62c5;
+  background-image: url("./images/journal-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -205,12 +208,16 @@ main {
     & .navbar {
       display: flex;
       justify-content: space-between;
+      max-height: 36px;
+      overflow: hidden;
 
       & h3 {
         font-weight: lighter;
 
         & span {
+          max-width: 200px;
           padding-left: 10px;
+          text-transform: capitalize;
         }
       }
 
@@ -327,18 +334,18 @@ main {
   color: #fff;
   display: flex;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 5px 20px;
 }
 
 /* NothingSelected */
 .nothing {
   align-items: center;
-  background-color: #5c62c5;
   color: #fff;
   display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: center;
+  background-color: #5c62c5;
 
   & p {
     font-size: 28px;

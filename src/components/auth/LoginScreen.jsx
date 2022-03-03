@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 import { startGoogleLogin, startLoginEmailPassword } from '../../actions/auth.jsx'
 import { useForm } from '../../hooks/useForm.jsx'
+import googleLogo from '../../images/google-logo.svg'
 import './LoginScreen.css'
 
 export const LoginScreen = () => {
@@ -67,7 +68,7 @@ export const LoginScreen = () => {
               <img
                 alt='google button'
                 className='google-icon'
-                src='https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg'
+                src={googleLogo}
               />
             </div>
             <p className='btn-text'>
