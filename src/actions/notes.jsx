@@ -18,7 +18,6 @@ export const startNewNote = () => {
     }
 
     try {
-      // const doc = await db.collection(`${uid}/journal/notes`).add(newNote)
       const doc = await addDoc(collection(db, `${uid}/journal/notes`), newNote)
 
       dispatch(activeNote(doc.id, newNote))
@@ -69,12 +68,10 @@ export const startSaveNote = (note) => {
       const noteToFirestore = { ...note }
 
       delete noteToFirestore.id
-
-      // await db.doc(`${uid}/journal/notes/${note.id}`).update(noteToFirestore)
       await updateDoc(doc(db, `${uid}/journal/notes`, `${note.id}`), noteToFirestore)
 
       dispatch(refreshNote(note.id, noteToFirestore))
-      Swal.fire('Saved', note.title, 'success')
+      Swal.fire('Note Updated', note.title, 'success')
     } catch (error) {
       console.log(error)
     }
@@ -97,14 +94,13 @@ export const startUploading = (file) => {
       title: 'Uploading...',
       text: 'Please wait...',
       allowOutsideClick: false,
-      onBeforeOpen: () => Swal.showLoading()
+      didOpen: () => Swal.showLoading()
     })
 
     const fileUrl = await fileUpload(file)
 
     activeNote.url = fileUrl
     dispatch(startSaveNote(activeNote))
-
     Swal.close()
   }
 }
@@ -113,12 +109,27 @@ export const startUploading = (file) => {
 export const startDeleting = (id) => {
   return async (dispatch, getState) => {
     try {
-      const uid = getState().auth.uid
+      const { uid, name } = getState().auth
 
-      // await db.doc(`${uid}/journal/notes/${id}`).delete()
       await deleteDoc(doc(db, `${uid}/journal/notes`, `${id}`))
-
-      dispatch(deleteNote(id))
+      Swal.fire({
+        title: `${name}, Are you sure?`,
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Deleted!',
+            'Your note has been deleted.',
+            'success'
+          )
+          dispatch(deleteNote(id))
+        }
+      })
     } catch (error) {
       console.log(error)
     }
