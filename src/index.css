@@ -14,12 +14,6 @@
   margin: 0;
 }
 
-/* html,
-body {
-  height: 100vh;
-  width: 100vw;
-} */
-
 html,
 body {
   margin: 0;
@@ -92,15 +86,15 @@ main {
 }
 
 .btn-primary {
-  background-color: #5c62c5;
+  background-color: #30c7ec;
   border-radius: 2px;
 
   &:disabled {
-    background-color: #9498d9;
+    background-color: #16d9e3;
   }
 
   &:hover {
-    background-color: #383e9d;
+    background-color: #46aef7;
   }
 }
 
@@ -121,11 +115,11 @@ main {
 }
 
 .btn-danger {
-  background-color: #f00;
+  background-color: #f14226;
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #c00;
+    background-color: #d6290e;
   }
 }
 
@@ -136,10 +130,7 @@ main {
 /* Style of the Authentication */
 .auth-main {
   align-items: center;
-  background-image: url("./images/journal-bg.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-image: linear-gradient(to right, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -154,7 +145,7 @@ main {
     width: 250px;
 
     & .auth-title {
-      color: #31368a;
+      color: #46aef7;
       margin-bottom: 20px;
     }
 
@@ -182,7 +173,7 @@ main {
         transition: border-botton 0.3s ease;
 
         &:focus {
-          border-bottom: 1px solid #5c62c5;
+          border-bottom: 1px solid #46aef7;
           outline: none;
         }
       }
@@ -194,8 +185,6 @@ main {
     }
   }
 }
-
-/* ---------------------------------------------------------------------------------------- */
 
 /* Journal */
 .ancla-note {
@@ -212,7 +201,6 @@ main {
     color: #fff;
     display: flex;
     flex-direction: column;
-    height: 100vh;
     padding-left: 10px;
     padding-right: 10px;
 
@@ -229,7 +217,6 @@ main {
         & span {
           max-width: 200px;
           padding-left: 10px;
-          text-transform: capitalize;
         }
       }
 
@@ -258,7 +245,9 @@ main {
     & .journal-entries {
       flex: 1 1 auto;
       margin-top: 30px;
-      overflow-y: scroll;
+      overflow-y: auto;
+      margin-bottom: 10px;
+      height: 68vh;
       padding-right: 1px;
 
       & .journal-entry {
@@ -284,7 +273,6 @@ main {
           }
         }
 
-        /* height: 62%; */
         & .entry-body {
           max-width: 300px;
           align-self: center;
@@ -342,7 +330,7 @@ main {
 /* Notes Navbar */
 .notes-navbar {
   align-items: center;
-  background-color: #5c62c5;
+  background-image: linear-gradient(to right, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -352,12 +340,14 @@ main {
 /* NothingSelected */
 .nothing {
   align-items: center;
-  color: #fff;
+  background-image: url("./images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #363636;
   display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: center;
-  background-color: #5c62c5;
 
   & p {
     font-size: 28px;
@@ -388,7 +378,6 @@ main {
 
   .notes-main-content,
   .nothing {
-    /* min-height: 80px; */
     height: 100vh;
     margin: 0 auto;
     width: 100%;

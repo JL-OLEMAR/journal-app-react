@@ -4,7 +4,7 @@
   height: 100%;
 
   & .notes-content {
-    background-color: #fff;
+    background-image: url("../../images/background.jpg");
     border-radius: 3px;
     box-shadow: 0 3px #363636;
     display: flex;
@@ -13,9 +13,10 @@
     padding: 20px;
 
     & .title-input {
+      background-color: #ffff;
       border-radius: 5px;
       border: 1px solid #d8d8d8;
-      color: #363636;
+      color: #7b7a7a;
       font-size: 25px;
       font-weight: 700;
       margin-bottom: 10px;
@@ -27,12 +28,13 @@
     }
 
     & .text-area {
+      background-color: #ffff;
       border-radius: 5px;
       border: 1px solid #d8d8d8;
-      color: #333;
+      color: #7b7a7a;
       cursor: auto;
       flex: 1 1 auto;
-      font-size: 18px;
+      font-size: 17px;
       margin-bottom: 10px;
       padding: 6px;
       resize: none;

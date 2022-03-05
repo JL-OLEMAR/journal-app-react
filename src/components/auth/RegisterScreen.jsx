@@ -53,7 +53,7 @@ export const RegisterScreen = () => {
         className='animate__animated animate__fadeIn animate__faster'
         onSubmit={handleRegister}
       >
-        {msgError && <div className='alert-error'>{msgError}</div>}
+        {msgError && <div className='alert-error config-center'>{msgError}</div>}
 
         <input
           autoComplete='off'
@@ -101,7 +101,7 @@ export const RegisterScreen = () => {
         </button>
 
         <Link
-          className='link conf-center'
+          className='link config-center'
           to='/auth/login'
         >
           Already registered?

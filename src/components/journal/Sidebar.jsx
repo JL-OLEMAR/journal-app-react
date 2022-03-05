@@ -18,12 +18,14 @@ export const Sidebar = () => {
     dispatch(startNewNote())
   }
 
+  const firstletterUpperCase = name && name.charAt(0).toUpperCase() + name.slice(1)
+
   return (
     <aside className='journal-sidebar'>
       <div className='navbar'>
         <h3 className='mt-2'>
           <i className='far fa-moon' />
-          <span>{name}</span>
+          <span>{firstletterUpperCase}&apos;s Journal</span>
         </h3>
 
         <button className='btn btn-danger logout-navbar mt-2' onClick={handleLogout}>
@@ -32,7 +34,7 @@ export const Sidebar = () => {
       </div>
 
       <Link className='ancla-note' to='/#note'>
-        <div className='new-entry' onClick={handleAddNew}>
+        <div className='new-entry mt-2 config-center' onClick={handleAddNew}>
           <i className='far fa-calendar-plus fa-5x' />
           <p className='mt-2'>New entry</p>
         </div>

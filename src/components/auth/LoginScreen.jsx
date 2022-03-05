@@ -61,7 +61,7 @@ export const LoginScreen = () => {
         <div className='social-networks'>
           <p>or</p>
           <div
-            className='btn-google'
+            className='btn-google mt-1'
             onClick={handleGoogleLogin}
           >
             <div className='google-icon-wrapper'>
@@ -78,7 +78,7 @@ export const LoginScreen = () => {
         </div>
 
         <Link
-          className='link conf-center'
+          className='link config-center'
           to='/auth/register'
         >
           Create new account

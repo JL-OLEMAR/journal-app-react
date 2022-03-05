@@ -1,6 +1,6 @@
 export const NothingSelected = () => {
   return (
-    <div className='nothing'>
+    <div className='nothing config-center'>
       <p>
         Select something
         <br />
