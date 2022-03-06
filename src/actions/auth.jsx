@@ -26,7 +26,6 @@ export const startLoginEmailPassword = (email, password) => {
 
     return signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
-        console.log({ user })
         dispatch(login(user.uid, user.displayName))
         dispatch(uiFinishLoading())
       })
