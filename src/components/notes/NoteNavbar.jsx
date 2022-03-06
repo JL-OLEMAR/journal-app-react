@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { startSaveNote, startUploading } from '../../actions/notes.jsx'
@@ -24,7 +25,7 @@ export const NoteNavbar = () => {
 
   return (
     <div className='notes-navbar'>
-      <span> 02 de marzo 2022</span>
+      <Link className='notes-navbar-title' to='/'>Ole-journal</Link>
 
       <input
         id='fileSelector'
