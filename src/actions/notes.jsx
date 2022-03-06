@@ -7,6 +7,7 @@ import { fileUpload } from '../helpers/fileUpload.jsx'
 import { loadNotes } from '../helpers/loadNotes.jsx'
 import { types } from '../types/types.jsx'
 
+// Saved notes
 export const startNewNote = () => {
   return async (dispatch, getState) => {
     const { uid } = getState().auth
@@ -65,7 +66,11 @@ export const startSaveNote = (note) => {
     }
 
     try {
-      const noteToFirestore = { ...note }
+      // const noteToFirestore = { ...note }
+      const noteToFirestore = {
+        ...note,
+        date: new Date().getTime()
+      }
 
       delete noteToFirestore.id
       await updateDoc(doc(db, `${uid}/journal/notes`, `${note.id}`), noteToFirestore)

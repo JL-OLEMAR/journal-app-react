@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import moment from 'moment'
+import { format } from 'date-fns'
 
 import { activeNote } from '../../actions/notes.jsx'
 
 export const JournalEntry = ({ id, date, title, body, url }) => {
-  const noteDate = moment(date)
+  const dayOfWeek = format(date, 'eeee') // Monday, Tuesday, ..., Sunday
+  const dayOfMonth = format(date, 'do') // 1st, 2nd, ..., 31st
+
   const dispatch = useDispatch()
 
   const handleEntryCLick = () => {
@@ -36,8 +38,8 @@ export const JournalEntry = ({ id, date, title, body, url }) => {
         </div>
 
         <div className='entry-date-box config-center'>
-          <span>{noteDate.format('dddd')}</span>
-          <h4>{noteDate.format('Do')}</h4>
+          <span>{dayOfWeek}</span>
+          <h4>{dayOfMonth}</h4>
         </div>
       </div>
     </Link>
