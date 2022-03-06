@@ -4,7 +4,7 @@
   height: 100%;
 
   & .notes-content {
-    background-image: url("../../images/background.jpg");
+    background-image: url("../../../assets/background.jpg");
     border-radius: 3px;
     box-shadow: 0 3px #363636;
     display: flex;

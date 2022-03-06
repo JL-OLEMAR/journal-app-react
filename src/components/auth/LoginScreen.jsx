@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 
 import { startGoogleLogin, startLoginEmailPassword } from '../../actions/auth.jsx'
 import { useForm } from '../../hooks/useForm.jsx'
-import googleLogo from '../../images/google-logo.svg'
+import googleLogo from '../../google-logo.svg'
+
 import './LoginScreen.css'
 
 export const LoginScreen = () => {
@@ -11,8 +12,8 @@ export const LoginScreen = () => {
   const { loading } = useSelector(state => state.ui)
 
   const [formValues, handleInputChange] = useForm({
-    email: 'test1@test.com',
-    password: '123456'
+    email: '',
+    password: ''
   })
 
   const { email, password } = formValues
