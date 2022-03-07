@@ -70,7 +70,7 @@ export const RegisterScreen = () => {
           className='auth-input'
           name='email'
           placeholder='Email'
-          type='text'
+          type='email'
           value={email}
           onChange={handleInputChange}
         />
