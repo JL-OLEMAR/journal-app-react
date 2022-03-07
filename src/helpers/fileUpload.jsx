@@ -1,6 +1,6 @@
 export const fileUpload = async (file) => {
   // Upload images to server the cloudinary
-  const cloudUrl = `${import.meta.env.VITE_APP_CLOUDINARY_URL}/upload`
+  const cloudUrl = 'https://api.cloudinary.com/v1_1/olemar/upload'
   const formData = new window.FormData()
 
   formData.append('upload_preset', 'react-journal')
