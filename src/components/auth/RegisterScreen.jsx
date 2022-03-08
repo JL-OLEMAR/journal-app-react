@@ -56,6 +56,7 @@ export const RegisterScreen = () => {
         {msgError && <div className='alert-error config-center'>{msgError}</div>}
 
         <input
+          autoFocus
           autoComplete='off'
           className='auth-input'
           name='name'

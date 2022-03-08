@@ -12,36 +12,34 @@
     height: 100%;
     padding: 20px;
 
-    & .title-input {
+    & .input {
       background-color: #ffff;
       border-radius: 5px;
       border: 1px solid #d8d8d8;
-      color: #7b7a7a;
-      font-size: 25px;
-      font-weight: 700;
+      color: #4d4d4d;
       margin-bottom: 10px;
-      padding: 3px 6px;
 
       &:focus {
         outline: none;
+      }
+
+      &::placeholder {
+        color: #999;
       }
     }
 
+    & .title-input {
+      font-size: 25px;
+      font-weight: 700;
+      padding: 3px 6px;
+    }
+
     & .text-area {
-      background-color: #ffff;
-      border-radius: 5px;
-      border: 1px solid #d8d8d8;
-      color: #7b7a7a;
       cursor: auto;
       flex: 1 1 auto;
       font-size: 17px;
-      margin-bottom: 10px;
       padding: 6px;
       resize: none;
-
-      &:focus {
-        outline: none;
-      }
 
       &::-webkit-scrollbar {
         width: 10px;

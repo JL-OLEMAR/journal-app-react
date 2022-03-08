@@ -159,7 +159,7 @@ main {
         border-bottom: 1px solid #d8d8d8;
         border-radius: 2px;
         border: 1px solid #d8d8d8;
-        color: #363636;
+        color: #4d4d4d;
         font-size: 16px;
         height: 20px;
         margin-bottom: 10px;
@@ -170,6 +170,10 @@ main {
         &:focus {
           border-bottom: 1px solid #46aef7;
           outline: none;
+        }
+
+        &::placeholder {
+          color: #999;
         }
       }
 
@@ -190,6 +194,7 @@ main {
 
 .journal-main-content {
   display: flex;
+  height: 100vh;
 
   & .journal-sidebar {
     background-color: #363636;
@@ -227,7 +232,7 @@ main {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin-top: 30px;
+      margin-top: 14px;
       width: 100%;
 
       & .btn-new-entry {
@@ -362,7 +367,7 @@ main {
   }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (min-width: 200px) and (max-width: 650px) {
   .journal-main-content {
     flex-direction: column;
   }
@@ -374,13 +379,13 @@ main {
     margin: 0 auto;
   }
 
-  .journal-entries {
-    height: auto;
-  }
-
   .new-entry-container,
   .journal-entries {
     margin-top: 10px;
+  }
+
+  .journal-entries {
+    height: auto;
   }
 
   .notes-main-content,
@@ -391,8 +396,14 @@ main {
   }
 }
 
-@media (min-width: 650px) {
-  .journal-sidebar {
-    width: 450px;
+@media screen and (min-width: 651px) {
+  .journal-main-content {
+    & .journal-sidebar {
+      width: 450px;
+
+      & .new-entry-container {
+        margin-top: 19px;
+      }
+    }
   }
 }

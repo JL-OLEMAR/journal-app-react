@@ -33,6 +33,7 @@ export const LoginScreen = () => {
         onSubmit={handleLogin}
       >
         <input
+          autoFocus
           autoComplete='off'
           className='auth-input'
           name='email'

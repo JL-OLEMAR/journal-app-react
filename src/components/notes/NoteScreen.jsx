@@ -37,7 +37,7 @@ export const NoteScreen = () => {
         <input
           autoFocus
           autoComplete='off'
-          className='title-input'
+          className='input title-input'
           name='title'
           placeholder='Entry Title'
           type='text'
@@ -46,7 +46,7 @@ export const NoteScreen = () => {
         />
 
         <textarea
-          className='text-area'
+          className='input text-area'
           name='body'
           placeholder='Your entry here...'
           value={body}
@@ -61,7 +61,7 @@ export const NoteScreen = () => {
       </div>
 
       <button
-        className='btn btn-danger btn-del'
+        className='btn btn-danger btn-del '
         onClick={handleDelete}
       >
         <i className='fa fa-trash fa-1x mt-1 pr-1' />
