@@ -1,16 +1,10 @@
 /* Style Global */
 * {
   font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "segoe ui",
     Roboto,
     Helvetica,
     Arial,
-    sans-serif,
-    "apple color emoji",
-    "segoe ui emoji",
-    "segoe ui symbol";
+    sans-serif;
   margin: 0;
 }
 
@@ -116,6 +110,7 @@ main {
 
 .btn-danger {
   background-color: #f14226;
+  padding: 5px 10px;
   transition: background-color 0.3s ease;
 
   &:hover {
@@ -207,9 +202,8 @@ main {
 
     & .navbar {
       display: flex;
-      height: 110px;
+      height: 34px;
       justify-content: space-between;
-      max-height: 36px;
       overflow: hidden;
 
       & h3 {
@@ -228,18 +222,16 @@ main {
       }
     }
 
-    & .new-entry {
-      align-items: center;
-      cursor: pointer;
+    & .new-entry-container {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
       margin-top: 30px;
-      transition: color 0.3s ease;
       width: 100%;
 
-      &:hover {
-        color: #ccc;
+      & .btn-new-entry {
+        font-size: 16px;
       }
     }
 
@@ -376,7 +368,7 @@ main {
   }
 
   .navbar,
-  .new-entry,
+  .new-entry-container,
   .journal-entries {
     width: 90%;
     margin: 0 auto;
@@ -386,7 +378,7 @@ main {
     height: auto;
   }
 
-  .new-entry,
+  .new-entry-container,
   .journal-entries {
     margin-top: 10px;
   }

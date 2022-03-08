@@ -15,7 +15,7 @@ export const startNewNote = () => {
     const newNote = {
       title: '',
       body: '',
-      date: new Date().getTime()
+      date: new Date().getTime() // in miliseconds
     }
 
     try {

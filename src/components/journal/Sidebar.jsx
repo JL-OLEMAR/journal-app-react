@@ -33,12 +33,14 @@ export const Sidebar = () => {
         </button>
       </div>
 
-      <Link className='ancla-note' to='/#note'>
-        <div className='new-entry mt-2 config-center' onClick={handleAddNew}>
-          <i className='far fa-calendar-plus fa-5x' />
-          <p className='mt-2'>New entry</p>
-        </div>
-      </Link>
+      <div className='new-entry-container mt-2 config-center'>
+        <Link className='ancla-note' to='/#note'>
+          <button className='btn btn-new-entry' onClick={handleAddNew}>
+            <i className='far fa-calendar-plus fa-5x' />
+            <p className='mt-2'>New entry</p>
+          </button>
+        </Link>
+      </div>
       <JournalEntries />
     </aside>
   )
