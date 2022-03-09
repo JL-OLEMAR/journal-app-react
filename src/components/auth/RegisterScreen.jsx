@@ -8,7 +8,7 @@ import { useForm } from '../../hooks/useForm.jsx'
 
 export const RegisterScreen = () => {
   const dispatch = useDispatch()
-  const { msgError } = useSelector(state => state.ui)
+  const { msgError, loading } = useSelector(state => state.ui)
 
   const [formValues, handleInputChange] = useForm({
     name: '',
@@ -96,6 +96,7 @@ export const RegisterScreen = () => {
 
         <button
           className='btn btn-primary btn-block mb-5 auth-btn'
+          disabled={loading}
           type='submit'
         >
           Register

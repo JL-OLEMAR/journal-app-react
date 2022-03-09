@@ -30,8 +30,8 @@ export const startLoginEmailPassword = (email, password) => {
         dispatch(uiFinishLoading())
       })
       .catch(() => {
-        dispatch(uiFinishLoading())
         Swal.fire('Error', 'Enter your credentials correctly.', 'error')
+        dispatch(uiFinishLoading())
       })
   }
 }
@@ -49,13 +49,20 @@ export const startGoogleLogin = () => {
 // Register
 export const startRegisterWithEmailPasswordName = (name, email, password) => {
   return (dispatch) => {
+    dispatch(uiStartLoading())
+
     createUserWithEmailAndPassword(auth, email, password)
       .then(async ({ user }) => {
+        // Update displayName to name of the profile user
         await updateProfile(auth.currentUser, { displayName: name })
+
+        // Login to Firebase
         dispatch(login(user.uid, user.displayName))
+        dispatch(uiFinishLoading())
       })
       .catch(() => {
         Swal.fire('Error', 'Fill in all the data correctly.', 'error')
+        dispatch(uiFinishLoading())
       })
   }
 }
@@ -65,6 +72,7 @@ export const logout = () => ({
   type: types.logout
 })
 
+// Logout
 export const startLogout = () => {
   return async (dispatch) => {
     await signOut(auth)

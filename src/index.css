@@ -82,13 +82,15 @@ main {
 .btn-primary {
   background-color: #30c7ec;
   border-radius: 2px;
-
-  &:disabled {
-    background-color: #16d9e3;
-  }
+  transition: background-color 3s ease;
 
   &:hover {
     background-color: #46aef7;
+  }
+
+  &:disabled {
+    background-color: #8de0f5;
+    cursor: none;
   }
 }
 
