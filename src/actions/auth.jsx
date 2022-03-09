@@ -29,10 +29,9 @@ export const startLoginEmailPassword = (email, password) => {
         dispatch(login(user.uid, user.displayName))
         dispatch(uiFinishLoading())
       })
-      .catch(e => {
-        console.log(e)
+      .catch(() => {
         dispatch(uiFinishLoading())
-        Swal.fire('Error', e.message, 'error')
+        Swal.fire('Error', 'Enter your credentials correctly.', 'error')
       })
   }
 }
@@ -55,9 +54,8 @@ export const startRegisterWithEmailPasswordName = (name, email, password) => {
         await updateProfile(auth.currentUser, { displayName: name })
         dispatch(login(user.uid, user.displayName))
       })
-      .catch(e => {
-        console.log(e)
-        Swal.fire('Error', e.message, 'error')
+      .catch(() => {
+        Swal.fire('Error', 'Fill in all the data correctly.', 'error')
       })
   }
 }
