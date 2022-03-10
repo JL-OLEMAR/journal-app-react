@@ -51,9 +51,12 @@ export const setNotes = (notes) => ({
 export const startLoadingNotes = (uid) => {
   return async (dispatch) => {
     try {
-      const notes = await loadNotes(uid)
+      const notes = await (await loadNotes(uid))
 
-      dispatch(setNotes(notes))
+      // sort notes by date desc
+      const orderedNotes = notes.sort((a, b) => b.date - a.date)
+
+      dispatch(setNotes(orderedNotes))
     } catch (error) {
       console.log(error)
     }
