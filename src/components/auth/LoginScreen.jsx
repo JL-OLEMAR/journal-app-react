@@ -5,7 +5,7 @@ import validator from 'validator'
 import { startGoogleLogin, startLoginEmailPassword } from '../../actions/auth.jsx'
 import { removeError, setError } from '../../actions/ui.jsx'
 import { useForm } from '../../hooks/useForm.jsx'
-import googleLogo from '../../google-logo.svg'
+import googleLogo from '../../assets/google-logo.svg'
 
 import './LoginScreen.css'
 
