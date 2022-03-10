@@ -1,9 +1,11 @@
 export const fileUpload = async (file) => {
-  // Upload images to server the cloudinary
-  const cloudUrl = 'https://api.cloudinary.com/v1_1/olemar/upload'
+  // Url of the uploaded file
+  const cloudUrl = `${import.meta.env.VITE_APP_CLOUDINARY_URL}/upload`
+  // Form data
   const formData = new window.FormData()
 
-  formData.append('upload_preset', 'react-journal')
+  // "react-journal-firebase" is the name of the upload_preset in Cloudinary
+  formData.append('upload_preset', 'react-journal-firebase')
   formData.append('file', file)
 
   try {
