@@ -6,7 +6,8 @@ import { activeNote } from '../../actions/notes.jsx'
 
 export const JournalEntry = ({ id, date, title, body, url }) => {
   const dayOfWeek = format(date, 'eeee') // Monday, Tuesday, ..., Sunday
-  const dayOfMonth = format(date, 'do') // 1st, 2nd, ..., 31st
+  const dayOfMonth = format(date, 'dd') // 01, 02, ..., 31
+  const Month = format(date, 'MMM') // Jan, Feb, ..., Dec
 
   const dispatch = useDispatch()
 
@@ -29,7 +30,7 @@ export const JournalEntry = ({ id, date, title, body, url }) => {
               backgroundImage: `url(${url})`
             }}
           />)
-      }
+        }
 
         <div className='entry-body'>
           <p className='entry-title'>
@@ -39,7 +40,7 @@ export const JournalEntry = ({ id, date, title, body, url }) => {
 
         <div className='entry-date-box config-center'>
           <span>{dayOfWeek}</span>
-          <h4>{dayOfMonth}</h4>
+          <h5>{Month}/{dayOfMonth}</h5>
         </div>
       </div>
     </Link>
