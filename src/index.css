@@ -274,20 +274,20 @@ main {
         }
 
         & .entry-body {
-          max-width: 300px;
-          align-self: center;
-          justify-items: center;
-          height: 30px;
+          align-items: center;
           display: flex;
+          justify-content: flex-start;
           overflow: hidden;
-          margin: 0 auto;
+          width: 90%;
 
           & .entry-title {
             color: #363636;
             font-size: 13px;
             font-weight: bold;
+            max-height: 49px;
+            max-width: 350px;
             overflow: hidden;
-            padding: 0 2px;
+            padding: 3px 6px;
           }
         }
 
@@ -388,6 +388,12 @@ main {
 
   .journal-entries {
     height: auto;
+
+    & .journal-entry {
+      & .entry-body {
+        max-width: 420px;
+      }
+    }
   }
 
   .notes-main-content,
@@ -407,5 +413,9 @@ main {
         margin-top: 19px;
       }
     }
+  }
+
+  .entry-body {
+    max-width: 300px;
   }
 }
