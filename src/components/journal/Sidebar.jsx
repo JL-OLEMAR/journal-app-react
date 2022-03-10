@@ -25,7 +25,7 @@ export const Sidebar = () => {
       <div className='navbar'>
         <h3 className='mt-2'>
           <i className='far fa-moon' />
-          <span>{firstletterUpperCase}&apos;s Journal</span>
+          <span>{`${firstletterUpperCase}'s Journal`}</span>
         </h3>
 
         <button className='btn btn-danger logout-navbar mt-2' onClick={handleLogout}>
