@@ -33,7 +33,7 @@ export const AppRouter = () => {
     })
   }, [dispatch, setChecking, setIsLoggedIn])
 
-  checking && <p>Checking...</p>
+  checking && <p>Wait...</p>
 
   return (
     <Router>

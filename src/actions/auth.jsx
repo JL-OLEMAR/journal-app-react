@@ -20,6 +20,7 @@ export const login = (uid, displayName) => ({
   payload: { uid, displayName }
 })
 
+// here Firebase
 export const startLoginEmailPassword = (email, password) => {
   return (dispatch) => {
     dispatch(uiStartLoading())
@@ -36,7 +37,7 @@ export const startLoginEmailPassword = (email, password) => {
   }
 }
 
-// Google Login
+// Google Login Firebase
 export const startGoogleLogin = () => {
   return (dispatch) => {
     signInWithPopup(auth, googleAuthProvider)
@@ -46,7 +47,7 @@ export const startGoogleLogin = () => {
   }
 }
 
-// Register
+// Register Firebase
 export const startRegisterWithEmailPasswordName = (name, email, password) => {
   return (dispatch) => {
     dispatch(uiStartLoading())
@@ -72,7 +73,7 @@ export const logout = () => ({
   type: types.logout
 })
 
-// Logout
+// Logout Firebase
 export const startLogout = () => {
   return async (dispatch) => {
     await signOut(auth)

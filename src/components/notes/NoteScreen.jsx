@@ -9,7 +9,7 @@ import './NoteScreen.css'
 
 export const NoteScreen = () => {
   const dispatch = useDispatch()
-  const { active: note } = useSelector((state) => state.notes)
+  const { active: note } = useSelector((state) => state.notes) // active is the note selected, "renamed to note"
   const [formValues, handleInputChange, reset] = useForm(note)
   const { body, title, id } = formValues
   const activeId = useRef(note.id)

@@ -18,9 +18,7 @@ export const NoteNavbar = () => {
   const handleFileChange = (e) => {
     const file = e.target.files[0]
 
-    if (file) {
-      dispatch(startUploading(file))
-    }
+    file && dispatch(startUploading(file))
   }
 
   return (

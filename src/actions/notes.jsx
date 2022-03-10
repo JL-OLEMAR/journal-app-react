@@ -7,7 +7,19 @@ import { fileUpload } from '../helpers/fileUpload.jsx'
 import { loadNotes } from '../helpers/loadNotes.jsx'
 import { types } from '../types/types.jsx'
 
-// Saved notes
+// Note active(selected)
+export const activeNote = (id, note) => ({
+  type: types.notesActive,
+  payload: { id, ...note }
+})
+
+// Add new note
+export const addNewNote = (id, note) => ({
+  type: types.notesAddNew,
+  payload: { id, ...note }
+})
+
+// Add new note to firestore
 export const startNewNote = () => {
   return async (dispatch, getState) => {
     const { uid } = getState().auth
@@ -21,24 +33,21 @@ export const startNewNote = () => {
     try {
       const doc = await addDoc(collection(db, `${uid}/journal/notes`), newNote)
 
-      dispatch(activeNote(doc.id, newNote))
       dispatch(addNewNote(doc.id, newNote))
+      dispatch(activeNote(doc.id, newNote))
     } catch (error) {
       console.log(error)
     }
   }
 }
 
-export const activeNote = (id, note) => ({
-  type: types.notesActive,
-  payload: { id, ...note }
+// Load notes
+export const setNotes = (notes) => ({
+  type: types.notesLoad,
+  payload: notes
 })
 
-export const addNewNote = (id, note) => ({
-  type: types.notesAddNew,
-  payload: { id, ...note }
-})
-
+// Load notes Firebase
 export const startLoadingNotes = (uid) => {
   return async (dispatch) => {
     try {
@@ -51,22 +60,23 @@ export const startLoadingNotes = (uid) => {
   }
 }
 
-export const setNotes = (notes) => ({
-  type: types.notesLoad,
-  payload: notes
+// Reload a note with your fields save or updated
+export const refreshNote = (id, note) => ({
+  type: types.notesUpdated,
+  payload: {
+    id,
+    note: { id, ...note }
+  }
 })
 
-// Update
+// Save or update a note to Firebase
 export const startSaveNote = (note) => {
   return async (dispatch, getState) => {
     const { uid } = getState().auth
 
-    if (!note.url) {
-      delete note.url
-    }
+    !note.url && delete note.url
 
     try {
-      // const noteToFirestore = { ...note }
       const noteToFirestore = {
         ...note,
         date: new Date().getTime()
@@ -83,14 +93,7 @@ export const startSaveNote = (note) => {
   }
 }
 
-export const refreshNote = (id, note) => ({
-  type: types.notesUpdated,
-  payload: {
-    id,
-    note: { id, ...note }
-  }
-})
-
+// Upload image Firebase
 export const startUploading = (file) => {
   return async (dispatch, getState) => {
     const { active: activeNote } = getState().notes
@@ -104,13 +107,14 @@ export const startUploading = (file) => {
 
     const fileUrl = await fileUpload(file)
 
+    // Set the name of the url to the selected note
     activeNote.url = fileUrl
     dispatch(startSaveNote(activeNote))
     Swal.close()
   }
 }
 
-// Delete
+// Delete note Firebase
 export const startDeleting = (id) => {
   return async (dispatch, getState) => {
     try {
@@ -141,11 +145,13 @@ export const startDeleting = (id) => {
   }
 }
 
+// Delete note
 export const deleteNote = (id) => ({
   type: types.notesDelete,
   payload: id
 })
 
+// Clear note
 export const noteLogout = () => ({
   type: types.notesLogoutCleaning
 })
