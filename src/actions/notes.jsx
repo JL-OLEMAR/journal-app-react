@@ -3,7 +3,12 @@ import 'sweetalert2/dist/sweetalert2.css'
 
 import { types } from '../types/types.jsx'
 import { fileUpload } from '../helpers/fileUpload.jsx'
-import { loadNotesFirebase, createNotesFirebase, saveNoteFirebase, deleteNoteFirebase } from '../firebase/notesFirebase.jsx'
+import {
+  loadNotesFirebase,
+  createNotesFirebase,
+  saveNoteFirebase,
+  deleteNoteFirebase
+} from '../firebase/notesFirebase.jsx'
 
 // Load all notes
 export const setNotes = (notes) => ({
@@ -15,7 +20,7 @@ export const setNotes = (notes) => ({
 export const startLoadingNotes = (uid) => {
   return async (dispatch) => {
     try {
-      const notes = await (await loadNotesFirebase(uid))
+      const notes = await loadNotesFirebase(uid) // (Firebase)
 
       // sort notes by date desc
       const orderedNotes = notes.sort((a, b) => b.date - a.date)
@@ -44,7 +49,7 @@ export const startNewNote = () => {
     const { uid } = getState().auth
 
     try {
-      const docRef = await createNotesFirebase(uid)
+      const docRef = await createNotesFirebase(uid) // (Firebase)
 
       dispatch(addNewNote(docRef.id, docRef))
       dispatch(activeNote(docRef.id, docRef))
@@ -68,7 +73,7 @@ export const startSaveNote = (note) => {
     !note.url && delete note.url
 
     try {
-      const noteSaved = await (await saveNoteFirebase(uid, note))
+      const noteSaved = await saveNoteFirebase(uid, note) // (Firebase)
 
       dispatch(refreshNote(note.id, noteSaved))
       Swal.fire('Note Saved', note.title, 'success')
