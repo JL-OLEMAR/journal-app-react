@@ -20,7 +20,7 @@ export const setNotes = (notes) => ({
 export const startLoadingNotes = (uid) => {
   return async (dispatch) => {
     try {
-      const notes = await loadNotesFirebase(uid) // (Firebase)
+      const notes = await loadNotesFirebase(uid)
 
       // sort notes by date desc
       const orderedNotes = notes.sort((a, b) => b.date - a.date)
@@ -49,7 +49,7 @@ export const startNewNote = () => {
     const { uid } = getState().auth
 
     try {
-      const docRef = await createNotesFirebase(uid) // (Firebase)
+      const docRef = await createNotesFirebase(uid)
 
       dispatch(addNewNote(docRef.id, docRef))
       dispatch(activeNote(docRef.id, docRef))
@@ -65,15 +65,15 @@ export const refreshNote = (id, note) => ({
   payload: { id, note: { id, date: new Date().getTime(), ...note } }
 })
 
-// Save or update a note to Firebase
+// Save or update a note (Firebase)
 export const startSaveNote = (note) => {
   return async (dispatch, getState) => {
-    const { uid } = getState().auth
+    const { uid } = getState().auth;
 
-    !note.url && delete note.url
+    (!note.url) && delete note.url
 
     try {
-      const noteSaved = await saveNoteFirebase(uid, note) // (Firebase)
+      const noteSaved = await saveNoteFirebase(uid, note)
 
       dispatch(refreshNote(note.id, noteSaved))
       Swal.fire('Note Saved', note.title, 'success')
@@ -110,7 +110,7 @@ export const deleteNote = (id) => ({
   payload: id
 })
 
-// Delete note Firebase
+// Delete note (Firebase)
 export const startDeleting = (id) => {
   return async (dispatch, getState) => {
     try {
@@ -126,7 +126,7 @@ export const startDeleting = (id) => {
         confirmButtonText: 'Yes, delete it!'
       }).then(async (result) => {
         if (result.isConfirmed) {
-          const noteDeleted = await deleteNoteFirebase(uid, id) // (Firebase)
+          const noteDeleted = await deleteNoteFirebase(uid, id)
 
           dispatch(deleteNote(noteDeleted))
 

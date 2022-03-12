@@ -5,8 +5,8 @@ import { types } from '../types/types.jsx'
 import {
   loginFirebase,
   loginGoogleFirebase,
-  logoutFirebase,
-  registerFirebase
+  registerFirebase,
+  logoutFirebase
 } from '../firebase/authFirebase.jsx'
 
 import { noteLogout } from './notes.jsx'
@@ -48,7 +48,7 @@ export const startGoogleLogin = () => {
   }
 }
 
-// Register Firebase
+// Register (Firebase)
 export const startRegisterWithEmailPasswordName = (name, email, password) => {
   return async (dispatch) => {
     dispatch(uiStartLoading())
@@ -71,7 +71,7 @@ export const logout = () => ({
   type: types.logout
 })
 
-// Logout Firebase
+// Logout (Firebase)
 export const startLogout = () => {
   return async (dispatch) => {
     await logoutFirebase()
