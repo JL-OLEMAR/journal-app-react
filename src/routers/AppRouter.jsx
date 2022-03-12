@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { BrowserRouter as Router, Redirect, Switch } from 'react-router-dom'
 import { onAuthStateChanged } from 'firebase/auth'
 
-import { auth } from '../firebase/firebase-config.jsx'
+import { auth } from '../firebase/dbFirebase.jsx'
 import { login } from '../actions/auth.jsx'
 import { startLoadingNotes } from '../actions/notes.jsx'
 import { JournalScreen } from '../components/journal/JournalScreen.jsx'

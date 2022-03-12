@@ -9,7 +9,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/dist/sweetalert2.css'
 
 import { types } from '../types/types.jsx'
-import { auth, googleAuthProvider } from '../firebase/firebase-config.jsx'
+import { auth, googleAuthProvider } from '../firebase/dbFirebase.jsx'
 
 import { noteLogout } from './notes.jsx'
 import { uiFinishLoading, uiStartLoading } from './ui.jsx'

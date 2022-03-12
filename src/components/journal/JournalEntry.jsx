@@ -5,11 +5,11 @@ import { format } from 'date-fns'
 import { activeNote } from '../../actions/notes.jsx'
 
 export const JournalEntry = ({ id, date, title, body, url }) => {
+  const dispatch = useDispatch()
+
   const dayOfWeek = format(date, 'eeee') // Monday, Tuesday, ..., Sunday
   const dayOfMonth = format(date, 'dd') // 01, 02, ..., 31
   const Month = format(date, 'MMM') // Jan, Feb, ..., Dec
-
-  const dispatch = useDispatch()
 
   const handleEntryCLick = () => {
     dispatch(activeNote(id, { date, title, body, url }))

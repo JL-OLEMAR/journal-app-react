@@ -1,6 +1,6 @@
 import { collection, getDocs } from 'firebase/firestore'
 
-import { db } from '../firebase/firebase-config.jsx'
+import { db } from '../firebase/dbFirebase.jsx'
 
 // Load notes Firebase
 export const loadNotes = async (uid) => {
