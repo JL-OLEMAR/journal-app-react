@@ -1,15 +1,13 @@
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  signOut,
-  updateProfile
-} from 'firebase/auth'
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/dist/sweetalert2.css'
 
 import { types } from '../types/types.jsx'
-import { auth, googleAuthProvider } from '../firebase/dbFirebase.jsx'
+import {
+  loginFirebase,
+  loginGoogleFirebase,
+  logoutFirebase,
+  registerFirebase
+} from '../firebase/authFirebase.jsx'
 
 import { noteLogout } from './notes.jsx'
 import { uiFinishLoading, uiStartLoading } from './ui.jsx'
@@ -20,51 +18,51 @@ export const login = (uid, displayName) => ({
   payload: { uid, displayName }
 })
 
-// here Firebase
+// Login with Email and Password (Firebase)
 export const startLoginEmailPassword = (email, password) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(uiStartLoading())
+    try {
+      const { uid, displayName } = await loginFirebase(email, password)
 
-    return signInWithEmailAndPassword(auth, email, password)
-      .then(({ user }) => {
-        dispatch(login(user.uid, user.displayName))
-        dispatch(uiFinishLoading())
-      })
-      .catch(() => {
-        Swal.fire('Error', 'Enter your credentials correctly.', 'error')
-        dispatch(uiFinishLoading())
-      })
+      dispatch(login(uid, displayName))
+      dispatch(uiFinishLoading())
+    } catch (e) {
+      Swal.fire('Error', 'Enter your credentials correctly.', 'error')
+      dispatch(uiFinishLoading())
+      console.log(e)
+    }
   }
 }
 
-// Google Login Firebase
+// Login with Google (Firebase)
 export const startGoogleLogin = () => {
-  return (dispatch) => {
-    signInWithPopup(auth, googleAuthProvider)
-      .then(({ user }) => {
-        dispatch(login(user.uid, user.displayName))
-      })
+  return async (dispatch) => {
+    try {
+      const { uid, displayName } = await loginGoogleFirebase()
+
+      dispatch(login(uid, displayName))
+    } catch (e) {
+      console.log(e)
+    }
   }
 }
 
 // Register Firebase
 export const startRegisterWithEmailPasswordName = (name, email, password) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(uiStartLoading())
 
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(async ({ user }) => {
-        // Update displayName to name of the profile user
-        await updateProfile(auth.currentUser, { displayName: name })
+    try {
+      const { uid, displayName } = await registerFirebase(name, email, password)
 
-        // Login to Firebase
-        dispatch(login(user.uid, user.displayName))
-        dispatch(uiFinishLoading())
-      })
-      .catch(() => {
-        Swal.fire('Error', 'Fill in all the data correctly.', 'error')
-        dispatch(uiFinishLoading())
-      })
+      dispatch(login(uid, displayName))
+      dispatch(uiFinishLoading())
+    } catch (error) {
+      console.log(error)
+      Swal.fire('Error', 'Fill in all the data correctly.', 'error')
+      dispatch(uiFinishLoading())
+    }
   }
 }
 
@@ -76,7 +74,7 @@ export const logout = () => ({
 // Logout Firebase
 export const startLogout = () => {
   return async (dispatch) => {
-    await signOut(auth)
+    await logoutFirebase()
 
     dispatch(logout())
     dispatch(noteLogout())
