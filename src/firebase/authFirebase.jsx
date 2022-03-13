@@ -3,7 +3,8 @@ import {
   signInWithPopup,
   createUserWithEmailAndPassword,
   updateProfile,
-  signOut
+  signOut,
+  onAuthStateChanged
 } from 'firebase/auth'
 
 import { auth, googleAuthProvider } from '../firebase/dbFirebase.jsx'
@@ -38,4 +39,9 @@ export const registerFirebase = async (name, email, password) => {
 // Logout
 export const logoutFirebase = async () => {
   return await signOut(auth)
+}
+
+// On Auth State Changed
+export const authStateChangedFirebase = async (callback) => {
+  return await onAuthStateChanged(auth, (callback))
 }
