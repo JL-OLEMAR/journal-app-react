@@ -16,11 +16,12 @@ export const useLoggedIn = () => {
       authStateChangedFirebase((user) => {
         if (user) {
           const { uid, displayName } = user
+
           dispatch(login(uid, displayName))
+          dispatch(startLoadingNotes(uid))
 
           setIsLoggedIn(true)
           setUserLogin(uid)
-          dispatch(startLoadingNotes(uid))
         } else {
           setIsLoggedIn(false)
           setUserLogin(null)

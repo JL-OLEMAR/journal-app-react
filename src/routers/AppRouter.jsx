@@ -1,7 +1,7 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import { useLoggedIn } from '../hooks/useLoggedIn'
+import { useLoggedIn } from '../hooks/useLoggedIn.jsx'
 import { JournalScreen } from '../components/journal/JournalScreen.jsx'
 
 import { PublicRoute } from './PublicRoute.jsx'
