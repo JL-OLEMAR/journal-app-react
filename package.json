@@ -5,7 +5,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "stylelint **/*.css && standard --fix ."
+    "lint": "stylelint **/*.css && standard --fix .",
+    "test": "vitest",
+    "coverage": "vite run --coverage"
   },
   "private": true,
   "dependencies": {
@@ -22,9 +24,9 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "1.0.7",
+    "@wojtekmaj/enzyme-adapter-react-17": "0.6.6",
     "autoprefixer": "10.4.2",
     "enzyme": "3.11.0",
-    "enzyme-adapter-react-16": "1.15.6",
     "enzyme-to-json": "3.6.2",
     "eslint": "7.32.0",
     "eslint-config-standard": "16.0.3",
@@ -37,6 +39,7 @@
     "standard": "16.0.4",
     "stylelint": "14.5.3",
     "stylelint-config-standard": "25.0.0",
-    "vite": "2.8.0"
+    "vite": "2.8.0",
+    "vitest": "0.6.1"
   }
 }
