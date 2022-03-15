@@ -1,5 +1,6 @@
 import fetch, { File } from 'node-fetch'
 import cloudinary from 'cloudinary'
+import { describe, expect, test } from 'vitest'
 
 import { fileUpload } from '../../helpers/fileUpload.jsx'
 

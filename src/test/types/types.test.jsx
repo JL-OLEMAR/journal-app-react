@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { types } from '../../types/types.jsx'
 
 describe('Test the types', () => {
