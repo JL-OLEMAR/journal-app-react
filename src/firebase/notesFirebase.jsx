@@ -17,7 +17,7 @@ export const createNotesFirebase = async (userId) => {
   const newNote = {
     title: '',
     body: '',
-    date: new Date().getTime() // miliseconds
+    date: new Date().getTime() // milliseconds
   }
 
   const docRef = await addDoc(collection(db, `${userId}/journal/notes`), newNote)
