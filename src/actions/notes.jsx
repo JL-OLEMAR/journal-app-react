@@ -4,7 +4,7 @@ import 'sweetalert2/dist/sweetalert2.css'
 import { types } from '../types/types.jsx'
 import { fileUpload } from '../helpers/fileUpload.jsx'
 import {
-  loadNotesFirebase,
+  getAllNotesFirebase,
   createNotesFirebase,
   saveNoteFirebase,
   deleteNoteFirebase
@@ -20,7 +20,7 @@ export const setNotes = (notes) => ({
 export const startLoadingNotes = (uid) => {
   return async (dispatch) => {
     try {
-      const notes = await loadNotesFirebase(uid)
+      const notes = await getAllNotesFirebase(uid)
 
       // sort notes by date desc
       const orderedNotes = notes.sort((a, b) => b.date - a.date)
@@ -38,7 +38,7 @@ export const activeNote = (id, note) => ({
   payload: { id, ...note }
 })
 
-// Add new note (Firestore)
+// Add new note (Firebase)
 export const addNewNote = (id, note) => ({
   type: types.notesAddNew,
   payload: { id, date: new Date().getTime(), ...note }

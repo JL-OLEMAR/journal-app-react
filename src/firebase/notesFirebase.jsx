@@ -1,15 +1,31 @@
-import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from 'firebase/firestore'
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  updateDoc
+} from 'firebase/firestore'
 
 import { db } from './dbFirebase.jsx'
 
-// Load all notes (Firestore)
-export const loadNotesFirebase = async (userId) => {
+// Get all notes from Firestore
+export const getAllNotesFirebase = async (userId) => {
   const notes = []
   const notesSnap = await getDocs(collection(db, `${userId}/journal/notes`))
 
   notesSnap.forEach(note => notes.push({ id: note.id, ...note.data() }))
 
   return notes
+}
+
+// Get a note by noteId from Firestore
+export const getNoteFirebase = async (userId, noteId) => {
+  const noteRef = await getDoc(doc(db, `${userId}/journal/notes`, `${noteId}`))
+  const note = noteRef.data()
+
+  return note
 }
 
 // Create new note and return the new note (Firestore)
