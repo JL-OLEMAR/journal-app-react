@@ -1,12 +1,12 @@
 {
-  "extends": "stylelint-config-standard",
+  "extends": "stylelint-config-recommended",
   "rules": {
+    "declaration-block-semicolon-newline-after": "always",
+    "declaration-block-trailing-semicolon": "always",
     "declaration-colon-newline-after": "always-multi-line",
-    "font-family-no-missing-generic-family-keyword": null,
     "indentation": 2,
     "no-empty-source": null,
-    "property-no-unknown": [ true, { "ignoreProperties": ["content-visibility"] } ],
-    "selector-type-no-unknown": null,
+    "selector-nested-pattern": "^&",
     "value-list-comma-newline-after": "always"
   },
   "ignoreFiles": [
