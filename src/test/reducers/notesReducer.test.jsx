@@ -3,7 +3,7 @@ import { describe, expect, test } from 'vitest'
 import { notesReducer } from '../../reducers/notesReducer.jsx'
 import { types } from '../../types/types.jsx'
 
-describe.only('notesReducer', () => {
+describe('notesReducer', () => {
   const currentDay = new Date().getTime()
 
   test('should show the active note', () => {
@@ -186,7 +186,10 @@ describe.only('notesReducer', () => {
 
     const noteId = '123'
 
+    // Remove note from array
     arrayNotes.filter(n => n.id !== noteId)
+
+    // Set active to null
     initActive === null // eslint-disable-line
 
     const action = {
@@ -237,7 +240,10 @@ describe.only('notesReducer', () => {
       active: initActive
     }
 
+    // Empty the array, because length is a property of an array and can be set to 0
     arrayNotes.length === 0 // eslint-disable-line
+
+    // Set active to null
     initActive === null // eslint-disable-line
 
     const action = {
