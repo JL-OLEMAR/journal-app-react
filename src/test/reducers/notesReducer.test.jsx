@@ -3,7 +3,7 @@ import { describe, expect, test } from 'vitest'
 import { notesReducer } from '../../reducers/notesReducer.jsx'
 import { types } from '../../types/types.jsx'
 
-describe('notesReducer', () => {
+describe.only('notesReducer', () => {
   const currentDay = new Date().getTime()
 
   test('should show the active note', () => {
@@ -116,58 +116,45 @@ describe('notesReducer', () => {
       }
     ]
 
-    const initState = {
-      notes: arrayNotes,
-      active: {
-        id: '123',
-        title: ''
-      }
+    const myNoteUpdated = {
+      id: '123',
+      title: 'title updated',
+      body: 'body updated',
+      url: 'http://url.com',
+      date: currentDay
     }
 
-    // return all notes with updated note
-    const resp = arrayNotes.map(n => (
-      (n.id === '123') // Update note if the id is '123'
-        ? {
-            id: n.id,
-            note: {
-              id: n.id,
-              title: 'title',
-              body: 'body',
-              date: currentDay,
-              url: ''
-            }
-          }
-        : n
-    ))
+    const initState = {
+      notes: arrayNotes,
+      active: myNoteUpdated
+    }
 
-    // filter out the note with id '123'
-    const [filterNote] = resp.filter(n => n.id === '123')
+    // get index of the note to update
+    const notesIndex = arrayNotes.findIndex(n => n.id === '123')
+
+    // update note if exists
+    ;(notesIndex !== -1) && (arrayNotes[notesIndex] = myNoteUpdated)
 
     const action = {
       type: types.notesUpdated,
-      payload: filterNote
+      payload: {
+        id: arrayNotes[notesIndex].id,
+        note: arrayNotes[notesIndex]
+      }
     }
 
     const state = notesReducer(initState, action)
 
     expect(state).toEqual({
+      // updated note and the rest of the notes
       notes: [
-        {
-          id: '123',
-          title: 'title',
-          body: 'body',
-          date: currentDay,
-          url: ''
-        },
+        myNoteUpdated,
         {
           id: '456',
           title: ''
         }
       ],
-      active: {
-        id: '123',
-        title: ''
-      }
+      active: myNoteUpdated
     })
   })
 
