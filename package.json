@@ -25,12 +25,12 @@
     "validator": "13.7.0"
   },
   "devDependencies": {
-    "redux-mock-store": "1.5.4",
+    "@vitejs/plugin-react": "1.0.7",
+    "@wojtekmaj/enzyme-adapter-react-17": "0.6.6",
+    "autoprefixer": "10.4.2",
+    "browserslist": "4.20.2",
     "enzyme": "3.11.0",
     "enzyme-to-json": "3.6.2",
-    "@wojtekmaj/enzyme-adapter-react-17": "0.6.6",
-    "jsdom": "19.0.0",
-    "jsdom-global": "3.0.2",    
     "eslint": "7.32.0",
     "eslint-config-standard": "16.0.3",
     "eslint-plugin-import": "2.25.4",
@@ -38,14 +38,16 @@
     "eslint-plugin-promise": "5.2.0",
     "eslint-plugin-react": "7.28.0",
     "eslint-plugin-react-hooks": "4.3.0",
+    "jsdom": "19.0.0",
+    "jsdom-global": "3.0.2",
+    "postcss-nesting": "10.1.2",
+    "postcss-syntax": "0.36.2",
+    "redux-mock-store": "1.5.4",
     "standard": "16.0.4",
     "stylelint": "14.5.3",
     "stylelint-config-recommended": "7.0.0",
-    "postcss-nesting": "10.1.2",
-    "postcss-syntax": "0.36.2",
-    "autoprefixer": "10.4.2",
     "vite": "2.8.0",
-    "vitest": "0.6.1",
-    "@vitejs/plugin-react": "1.0.7"
-  }
+    "vitest": "0.6.1"
+  },
+  "browserslist": ["defaults"]
 }
