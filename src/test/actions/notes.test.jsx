@@ -39,6 +39,7 @@ let store = mockStore(initState) // mock store
 describe('Tests actions Notes', () => {
   beforeEach(() => {
     store = mockStore(initState)
+    vi.clearAllMocks()
   })
 
   const currentDay = new Date().getTime()

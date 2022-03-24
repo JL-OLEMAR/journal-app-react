@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, test } from 'vitest'
+import { beforeEach, describe, expect, test, vi } from 'vitest'
 import configureStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 
@@ -13,6 +13,7 @@ let store = mockStore(initState) // mock store
 describe('Tests actions Notes ', () => {
   beforeEach(() => {
     store = mockStore(initState)
+    vi.clearAllMocks()
   })
 
   test('login and logout should create the respective action', () => {
@@ -46,15 +47,15 @@ describe('Tests actions Notes ', () => {
   })
 
   test('should startLoginEmailPassword', async () => {
+    // test1@test.com', '123456' from authentication firebase
     await store.dispatch(startLoginEmailPassword('test1@test.com', '123456'))
-
     const actions = store.getActions()
 
     // with the user created manually in firebase, test the login
     expect(actions[1]).toEqual({
       type: types.login,
       payload: {
-        uid: 'hip1HBxiI8dGtDSbwKr5NZTiiC32',
+        uid: 'hip1HBxiI8dGtDSbwKr5NZTiiC32', // userUID from authentication firebase
         displayName: null
       }
     })
