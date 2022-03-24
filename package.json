@@ -39,6 +39,7 @@
     "eslint-plugin-react": "7.28.0",
     "eslint-plugin-react-hooks": "4.3.0",
     "fs": "0.0.1-security",
+    "jsdom-global": "3.0.2",
     "postcss-nesting": "10.1.2",
     "postcss-syntax": "0.36.2",
     "redux-mock-store": "1.5.4",

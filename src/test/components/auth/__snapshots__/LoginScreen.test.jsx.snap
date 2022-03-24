@@ -1,0 +1,76 @@
+// Vitest Snapshot v1
+
+exports[`Tests <LoginScreen /> > should wrapper the component LoginScreen 1`] = `
+[
+  <h3
+    className="auth-title"
+  >
+    Login
+  </h3>,
+  <form
+    className="animate__animated animate__fadeIn animate__faster"
+    onSubmit={[Function]}
+  >
+    <input
+      autoComplete="off"
+      autoFocus={true}
+      className="auth-input"
+      name="email"
+      onChange={[Function]}
+      placeholder="Email"
+      type="email"
+      value=""
+    />
+    <input
+      className="auth-input"
+      name="password"
+      onChange={[Function]}
+      placeholder="Password"
+      type="password"
+      value=""
+    />
+    <button
+      className="btn btn-primary btn-block auth-btn"
+      disabled={false}
+      type="submit"
+    >
+      Login
+    </button>
+    <div
+      className="social-networks"
+    >
+      <p>
+        or
+      </p>
+      <div
+        className="btn-google mt-1"
+        onClick={[Function]}
+      >
+        <div
+          className="google-icon-wrapper"
+        >
+          <img
+            alt="google button"
+            className="google-icon"
+            src="/src/assets/google-logo.svg"
+          />
+        </div>
+        <p
+          className="btn-text"
+        >
+          <b>
+            Sign in with google
+          </b>
+        </p>
+      </div>
+    </div>
+    <a
+      className="link config-center"
+      href="/auth/register"
+      onClick={[Function]}
+    >
+      Create new account
+    </a>
+  </form>,
+]
+`;
