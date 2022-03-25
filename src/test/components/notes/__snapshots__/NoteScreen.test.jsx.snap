@@ -1,0 +1,87 @@
+// Vitest Snapshot v1
+
+exports[`Test <NoteScreen /> > should show correctly 'snapshot' 1`] = `
+<div
+  className="notes-main-content"
+>
+  <div
+    className="notes-navbar"
+  >
+    <a
+      className="notes-navbar-title"
+      href="/"
+      onClick={[Function]}
+    >
+      Ole-journal
+    </a>
+    <input
+      id="fileSelector"
+      name="file"
+      onChange={[Function]}
+      style={
+        {
+          "display": "none",
+        }
+      }
+      type="file"
+    />
+    <div>
+      <button
+        className="btn btn-picture"
+        onClick={[Function]}
+      >
+        <i
+          className="far fa-image fa-1x mt-1 pr-1"
+        />
+        <span>
+          Picture
+        </span>
+      </button>
+      <button
+        className="btn btn-save"
+        onClick={[Function]}
+      >
+        <i
+          className="far fa-save fa-1x mt-1 pr-1"
+        />
+        <span>
+          Save
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    className="notes-content"
+    id="note"
+  >
+    <input
+      autoComplete="off"
+      autoFocus={true}
+      className="input title-input"
+      name="title"
+      onChange={[Function]}
+      placeholder="Entry Title"
+      type="text"
+      value="Hello"
+    />
+    <textarea
+      className="input text-area"
+      name="body"
+      onChange={[Function]}
+      placeholder="Your entry here..."
+      value="world"
+    />
+  </div>
+  <button
+    className="btn btn-danger btn-del "
+    onClick={[Function]}
+  >
+    <i
+      className="fa fa-trash fa-1x mt-1 pr-1"
+    />
+    <span>
+      Delete
+    </span>
+  </button>
+</div>
+`;
