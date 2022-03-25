@@ -1,0 +1,54 @@
+// Vitest Snapshot v1
+
+exports[`Tests <Sidebar /> > should show correctly 'snapshot' 1`] = `
+<aside
+  className="journal-sidebar"
+>
+  <div
+    className="navbar"
+  >
+    <h3
+      className="mt-2"
+    >
+      <i
+        className="far fa-moon"
+      />
+      <span>
+        John Doe's Journal
+      </span>
+    </h3>
+    <button
+      className="btn btn-danger logout-navbar mt-2"
+      onClick={[Function]}
+    >
+      Logout
+    </button>
+  </div>
+  <div
+    className="new-entry-container mt-2 config-center"
+  >
+    <a
+      className="ancla-note"
+      href="/#note"
+      onClick={[Function]}
+    >
+      <button
+        className="btn btn-new-entry"
+        onClick={[Function]}
+      >
+        <i
+          className="far fa-calendar-plus fa-5x"
+        />
+        <p
+          className="mt-2"
+        >
+          New entry
+        </p>
+      </button>
+    </a>
+  </div>
+  <div
+    className="journal-entries"
+  />
+</aside>
+`;

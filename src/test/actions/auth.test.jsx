@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, test, vi } from 'vitest'
+import { beforeEach, describe, expect, test } from 'vitest'
 import configureStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 
@@ -13,7 +13,6 @@ let store = mockStore(initState) // mock store
 describe('Tests actions Notes ', () => {
   beforeEach(() => {
     store = mockStore(initState)
-    vi.clearAllMocks()
   })
 
   test('login and logout should create the respective action', () => {
