@@ -1,0 +1,45 @@
+// Vitest Snapshot v1
+
+exports[`Tests <JournalEntry /> > should show correctly 'snapshot' 1`] = `
+<a
+  className="ancla-note"
+  href="/#note"
+  onClick={[Function]}
+>
+  <div
+    className="journal-entry pointer animate__animated animate__fadeIn animate__faster"
+    onClick={[Function]}
+  >
+    <div
+      className="entry-picture"
+      style={
+        {
+          "backgroundImage": "url(https://somewhere.com/photo.jpg)",
+          "backgroundSize": "cover",
+        }
+      }
+    />
+    <div
+      className="entry-body"
+    >
+      <p
+        className="entry-title"
+      >
+        Hello
+      </p>
+    </div>
+    <div
+      className="entry-date-box config-center"
+    >
+      <span>
+        Wednesday
+      </span>
+      <h5>
+        Dec
+        /
+        31
+      </h5>
+    </div>
+  </div>
+</a>
+`;
